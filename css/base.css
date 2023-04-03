@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+
+/* 基本設定
+---------------------------------------- */
+
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  letter-spacing: 0.02em;
+  color: #212127;
+  font-family: sans-serif;
+}
+
+html {
+  overflow: hidden;
+  background-color: #F9F9FB;;
+}
+
+/* アプリケーション
+---------------------------------------- */
+
+#list-comments {
+  width: 255px;
+  height: 100Vh;
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+}
+
+.comment-wrapper {
+  padding: 20px;
+  border-bottom: 1px solid #CCCCCC;
+  position: relative;
+}
+
+.comment-wrapper:hover {
+  background-color: #F9F9FB;
+}
+
+.edit {
+  display: none;
+  cursor: pointer;
+}
+
+
+
+.comment-wrapper:hover .edit {
+  display: block;
+  position: absolute;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  /* width: 40px; */
+  right: 0;
+  top: -10px;
+  z-index: 100;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.comment-wrapper:hover .edit:hover {
+  background-color: #F9F9FB;
+}
+
+
+.comment-wrapper:first-child:hover .edit {
+  top: 0;
+}
+
+.comment-sender {
+  padding-left: 23px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.comment-sender::before {
+  display: block;
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  border: 1px solid #CCCCCC;
+  background-color: #EEEEEE;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.comment-time-sent {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #CCCCCC;
+}
+
+.comment-content p {
+  font-size: 14px;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+/* .comment-content p:first-child {
+  margin-top: 0;
+} */
+
+@media screen and (max-width:385px) {
+  #list-comments {
+    width: 100%;
+  }
+}
+
+
+/* アプリケーション
+---------------------------------------- */
+
+#toast-layer {
+  width: 100%;
+  position: absolute;
+  z-index: 400;
+  top: -50px;
+  right: 0;
+  transition: top ease-out 0.3s;
+  text-align: center;
+}
+
+#toast-layer[data-isShown="yes"] {
+  top: 15px;
+}
+
+
+#toast-layer p {
+  display: inline-block;
+  width: auto;
+  margin: 0 atuo;
+  background-color: #212127;
+  padding: 12px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1;
+}
