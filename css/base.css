@@ -34,7 +34,8 @@ body {
 
 #list-comments {
   width: 255px;
-  height: 100Vh;
+  height: 100vh;
+  height: 100dvh;
   background-color: #FFFFFF;
   overflow-y: scroll;
   border-right: 1px solid #CCCCCC;

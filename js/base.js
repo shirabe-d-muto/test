@@ -1,4 +1,4 @@
-const editTrigger = document.querySelectorAll(".trigger");
+const editTrigger = document.querySelectorAll(".trigger-toast");
 console.log(editTrigger);
 editTrigger.forEach(function(trigger) {
     trigger.addEventListener('click', () => {
