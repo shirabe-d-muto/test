@@ -14,8 +14,9 @@
 }
 
 html {
+  touch-action: manipulation;
   overflow: hidden;
-  background-color: #F9F9FB;;
+  background-color: #F9F9FB;
 }
 
 body {
