@@ -20,15 +20,9 @@ html {
 
 body {
   user-select: none;
-  -webkit-touch-callout:none; /* リンク長押しのポップアップを無効化 */
-  -webkit-user-select:none; /* テキスト長押しの選択ボックスを無効化 */
+  -webkit-user-select: none;
 }
 
-@supports (-webkit-touch-callout: none) {
-  body {
-    height: -webkit-fill-available;
-  }
-}
 
 
 /* comments
