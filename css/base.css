@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 
-/* 基本設定
+/* basics
 ---------------------------------------- */
 
 *,*::before,*::after{
@@ -18,7 +18,9 @@ html {
   background-color: #F9F9FB;;
 }
 
-/* アプリケーション
+
+
+/* comments
 ---------------------------------------- */
 
 #list-comments {
@@ -26,12 +28,30 @@ html {
   height: 100Vh;
   background-color: #FFFFFF;
   overflow-y: scroll;
+  border-right: 1px solid #CCCCCC;
+}
+
+.comments-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 80px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .comment-wrapper {
   padding: 20px;
   border-bottom: 1px solid #CCCCCC;
   position: relative;
+}
+
+.comment-wrapper:nth-child(2) {
+  margin-top: 20px;
+  border-top: 1px solid #CCCCCC;
 }
 
 .comment-wrapper:hover {
@@ -43,8 +63,6 @@ html {
   cursor: pointer;
 }
 
-
-
 .comment-wrapper:hover .edit {
   display: block;
   position: absolute;
@@ -54,21 +72,21 @@ html {
   border: 1px solid #CCCCCC;
   background-color: #FFFFFF;
   /* width: 40px; */
-  right: 0;
+  right: 5px;
   top: -10px;
   z-index: 100;
   font-size: 14px;
   line-height: 1;
 }
 
+/* .comment-wrapper:nth-child(2) .edit {
+  top: 10px;
+} */
+
 .comment-wrapper:hover .edit:hover {
   background-color: #F9F9FB;
 }
 
-
-.comment-wrapper:first-child:hover .edit {
-  top: 0;
-}
 
 .comment-sender {
   padding-left: 23px;
@@ -109,11 +127,85 @@ html {
 @media screen and (max-width:385px) {
   #list-comments {
     width: 100%;
+    border: none;
   }
 }
 
+/* buttons
+---------------------------------------- */
+.buttons-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  z-index: 300;
+}
 
-/* アプリケーション
+.button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.button:hover {
+  background-color: #EEEEEE;
+}
+
+@media screen and (max-width:385px) {
+  .button {
+    border: 1px solid #EEEEEE;
+  }
+}
+
+/* tooltip
+---------------------------------------- */
+/* ツールチップ全体の設定 */
+.tooltip::before,
+.tooltip::after {
+  position: absolute;
+  display: none;
+}
+
+/* 吹き出しのひげ部分 */
+.tooltip::before {
+  content: "";
+  border: 5px solid transparent;
+  border-bottom-color: #000;
+  bottom: -10px;
+  right: 15px;
+}
+
+/* 吹き出しの本体 */
+.tooltip::after {
+  content: attr(data-tooltip);
+  /* min-width: 100px; */
+  width: auto;
+  padding: 7px 13px;
+  background: #000;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  color: #fff;
+  bottom: -42px;
+  right: 0;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  display: block;
+}
+
+
+/* toast
 ---------------------------------------- */
 
 #toast-layer {
