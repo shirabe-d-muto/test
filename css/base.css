@@ -179,6 +179,7 @@ body {
 .tooltip::after {
   position: absolute;
   display: none;
+  z-index: 700;
 }
 
 /* 吹き出しのひげ部分 */
