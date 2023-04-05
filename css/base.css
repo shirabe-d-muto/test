@@ -22,6 +22,7 @@ html {
 body {
   user-select: none;
   -webkit-user-select: none;
+  position: relative;
 }
 
 
@@ -212,13 +213,56 @@ body {
 }
 
 
+/* drawer
+---------------------------------------- */
+.drawer {
+  width: 385px;
+  height: 100vw;
+  height: 100dvh;
+  background-color: #FFFFFF;
+  box-shadow: -3px 0 3px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 0;
+  right: -385px;
+  z-index: 400;
+  transition: all 0.3s ease-out;
+}
+
+.drawer[data-isShown="yes"] {
+  right: 0;
+  transition: all 0.3s ease-out;
+}
+
+.drawer-header {
+  width: 100%;
+  height: 80px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.drawer-header .button {
+  border: 1px solid #CCCCCC;
+}
+
+@media screen and (max-width:385px) {
+  .drawer {
+    width: 100vw;
+  }
+}
+
+
+
 /* toast
 ---------------------------------------- */
 
 #toast-layer {
   width: 100%;
   position: absolute;
-  z-index: 400;
+  z-index: 500;
   top: -50px;
   right: 0;
   transition: top ease-out 0.3s;

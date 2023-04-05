@@ -6,8 +6,15 @@ editTrigger.forEach(function(trigger) {
     });
 });
 
-
-
+const drawerTriggerOpen = document.getElementById("hover-and-link");
+const drawerTriggerClose = document.getElementById("trigger-close-drawer");
+const drawer = document.getElementById("drawer");
+drawerTriggerOpen.addEventListener('click', () => {
+    drawer.setAttribute("data-isShown","yes");
+});
+drawerTriggerClose.addEventListener('click', () => {
+    drawer.setAttribute("data-isShown","no");
+});
 
 const toastContainer = document.getElementById("toast-layer");
 const hideToast = () => {toastContainer.setAttribute("data-isShown","no")};
